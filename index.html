@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APP POKER</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row g-1 my-2">
+            <div class="col-12">
+                <div class="d-grid gap-2">
+                    <button type="button" class="btn btn-sm btn-primary" onclick="new Jugadas().nuevoJuego()">
+                        NUEVO JUEGO
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-0 mb-2">
+            <div class="col-12">
+                <div class="table-responsive">
+                    <table class="table">
+                      <tbody>
+                        <tr id="listarDeCartas">
+
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+            </div>
+        </div>
+
+        <div class="row g-1">
+            <div class="col-3">
+                <img src="./cartas/1_drilo.png" width="100%" class="cartas">
+            </div>
+            <div class="col-3">
+                <img src="./cartas/1_flor.png" width="100%" class="cartas">
+            </div>
+            <div class="col-3">
+                <img src="./cartas/1_corazon.png" width="100%" class="cartas">
+            </div>
+            <div class="col-3">
+                <img src="./cartas/1_espada.png" width="100%" class="cartas">
+            </div>
+        </div>
+
+        <div class="row g-1">
+            <div class="col-3">
+                <img src="./cartas/2_drilo.png" width="100%" class="cartas">
+            </div>
+            <div class="col-3">
+                <img src="./cartas/2_flor.png" width="100%" class="cartas">
+            </div>
+            <div class="col-3">
+                <img src="./cartas/2_corazon.png" width="100%" class="cartas">
+            </div>
+            <div class="col-3">
+                <img src="./cartas/2_espada.png" width="100%" class="cartas">
+            </div>
+        </div>
+
+        <div class="row g-1">
+            <div class="col-3">
+                <img src="./cartas/3_drilo.png" width="100%" class="cartas">
+            </div>
+            <div class="col-3">
+                <img src="./cartas/3_flor.png" width="100%" class="cartas">
+            </div>
+            <div class="col-3">
+                <img src="./cartas/3_corazon.png" width="100%" class="cartas">
+            </div>
+            <div class="col-3">
+                <img src="./cartas/3_espada.png" width="100%" class="cartas">
+            </div>
+        </div>
+
+        <div class="row g-1">
+            <div class="col-3">
+                <img src="./cartas/4_drilo.png" width="100%" class="cartas">
+            </div>
+            <div class="col-3">
+                <img src="./cartas/4_flor.png" width="100%" class="cartas">
+            </div>
+            <div class="col-3">
+                <img src="./cartas/4_corazon.png" width="100%" class="cartas">
+            </div>
+            <div class="col-3">
+                <img src="./cartas/4_espada.png" width="100%" class="cartas">
+            </div>
+        </div>
+
+        <div class="row g-1">
+            <div class="col-3">
+                <img src="./cartas/5_drilo.png" width="100%" class="cartas">
+            </div>
+            <div class="col-3">
+                <img src="./cartas/5_flor.png" width="100%" class="cartas">
+            </div>
+            <div class="col-3">
+                <img src="./cartas/5_corazon.png" width="100%" class="cartas">
+            </div>
+            <div class="col-3">
+                <img src="./cartas/5_espada.png" width="100%" class="cartas">
+            </div>
+        </div>
+
+        <div class="row g-1">
+            <div class="col-3">
+                <img src="./cartas/6_drilo.png" width="100%" class="cartas">
+            </div>
+            <div class="col-3">
+                <img src="./cartas/6_flor.png" width="100%" class="cartas">
+            </div>
+            <div class="col-3">
+                <img src="./cartas/6_corazon.png" width="100%" class="cartas">
+            </div>
+            <div class="col-3">
+                <img src="./cartas/6_espada.png" width="100%" class="cartas">
+            </div>
+        </div>
+
+        <div class="row g-1">
+            <div class="col-3">
+                <img src="./cartas/7_drilo.png" width="100%" class="cartas">
+            </div>
+            <div class="col-3">
+                <img src="./cartas/7_flor.png" width="100%" class="cartas">
+            </div>
+            <div class="col-3">
+                <img src="./cartas/7_corazon.png" width="100%" class="cartas">
+            </div>
+            <div class="col-3">
+                <img src="./cartas/7_espada.png" width="100%" class="cartas">
+            </div>
+        </div>
+
+        <div class="row g-1">
+            <div class="col-3">
+                <img src="./cartas/8_drilo.png" width="100%" class="cartas">
+            </div>
+            <div class="col-3">
+                <img src="./cartas/8_flor.png" width="100%" class="cartas">
+            </div>
+            <div class="col-3">
+                <img src="./cartas/8_corazon.png" width="100%" class="cartas">
+            </div>
+            <div class="col-3">
+                <img src="./cartas/8_espada.png" width="100%" class="cartas">
+            </div>
+        </div>
+
+        <div class="row g-1">
+            <div class="col-3">
+                <img src="./cartas/9_drilo.png" width="100%" class="cartas">
+            </div>
+            <div class="col-3">
+                <img src="./cartas/9_flor.png" width="100%" class="cartas">
+            </div>
+            <div class="col-3">
+                <img src="./cartas/9_corazon.png" width="100%" class="cartas">
+            </div>
+            <div class="col-3">
+                <img src="./cartas/9_espada.png" width="100%" class="cartas">
+            </div>
+        </div>
+
+        <div class="row g-1">
+            <div class="col-3">
+                <img src="./cartas/10_drilo.png" width="100%" class="cartas">
+            </div>
+            <div class="col-3">
+                <img src="./cartas/10_flor.png" width="100%" class="cartas">
+            </div>
+            <div class="col-3">
+                <img src="./cartas/10_corazon.png" width="100%" class="cartas">
+            </div>
+            <div class="col-3">
+                <img src="./cartas/10_espada.png" width="100%" class="cartas">
+            </div>
+        </div>
+
+        <div class="row g-1">
+            <div class="col-3">
+                <img src="./cartas/11_drilo.png" width="100%" class="cartas">
+            </div>
+            <div class="col-3">
+                <img src="./cartas/11_flor.png" width="100%" class="cartas">
+            </div>
+            <div class="col-3">
+                <img src="./cartas/11_corazon.png" width="100%" class="cartas">
+            </div>
+            <div class="col-3">
+                <img src="./cartas/11_espada.png" width="100%" class="cartas">
+            </div>
+        </div>
+
+        <div class="row g-1">
+            <div class="col-3">
+                <img src="./cartas/12_drilo.png" width="100%" class="cartas">
+            </div>
+            <div class="col-3">
+                <img src="./cartas/12_flor.png" width="100%" class="cartas">
+            </div>
+            <div class="col-3">
+                <img src="./cartas/12_corazon.png" width="100%" class="cartas">
+            </div>
+            <div class="col-3">
+                <img src="./cartas/12_espada.png" width="100%" class="cartas">
+            </div>
+        </div>
+
+        <div class="row g-1">
+            <div class="col-3">
+                <img src="./cartas/13_drilo.png" width="100%" class="cartas">
+            </div>
+            <div class="col-3">
+                <img src="./cartas/13_flor.png" width="100%" class="cartas">
+            </div>
+            <div class="col-3">
+                <img src="./cartas/13_corazon.png" width="100%" class="cartas">
+            </div>
+            <div class="col-3">
+                <img src="./cartas/13_espada.png" width="100%" class="cartas">
+            </div>
+        </div>
+
+        <div class="row g-1">
+            <div class="col-3">
+                <img src="./cartas/yoli.png" width="100%" class="cartas">
+            </div>
+        </div>
+
+    </div>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const cartas = document.querySelectorAll('.cartas');
+        for (const carta of cartas) {
+            carta.addEventListener('click', function () {
+                new Jugadas().guardarCarta.call(this);
+            });
+        }
+
+        new Jugadas().listarCartas();
+    });
+
+    var Jugadas = (function () {
+        Jugadas.prototype.listarCartas = function () {
+            const jugadas = localStorage.getItem('jugadas');
+            if (jugadas) {
+                let html = '';
+                for (const carta of JSON.parse(jugadas)) {
+                    html += `<td><img src="${carta}" width="50" class="cartas float-start"></td>`;
+                }
+                document.getElementById('listarDeCartas').innerHTML = html;
+            } else {
+                document.getElementById('listarDeCartas').innerHTML = `<div class="alert alert-info" role="alert">AUN NO HAY CARTAS !</div>`;
+            }
+        };
+        Jugadas.prototype.guardarCarta = function () {
+            const jugadas = localStorage.getItem('jugadas');
+            if (!jugadas) {
+                alert("DEBE INICIAR NUEVO JUEGO");
+            }
+            const arrayJugadas = JSON.parse(jugadas);
+            arrayJugadas.push(this.getAttribute("src"));
+
+            localStorage.setItem('jugadas', JSON.stringify(arrayJugadas));
+            new Jugadas().listarCartas();
+        };
+
+        Jugadas.prototype.nuevoJuego = function () {
+            if (confirm("ESTA SEGURO DE INICIAR NUEVO JUEGO ?")) {
+                const jugadas = localStorage.getItem('jugadas');
+                if (!jugadas) {
+                    localStorage.setItem('jugadas', JSON.stringify([]));
+                } else {
+                    alert("YA TIENES UNA JUGADA ABIERTA SELECCIONA UNA CARTA !");
+                }
+            }
+        };
+    });
+</script>
+
+</html>
