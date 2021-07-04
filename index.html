@@ -12,6 +12,15 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
 </head>
+<style>
+    .cartas {
+        border-radius: 5%;
+    }
+
+    .cartas:hover {
+        border: 5px solid teal;
+    }
+</style>
 
 <body>
     <div class="container-fluid">
@@ -29,13 +38,13 @@
             <div class="col-12">
                 <div class="table-responsive">
                     <table class="table">
-                      <tbody>
-                        <tr id="listarDeCartas">
+                        <tbody>
+                            <tr id="listarDeCartas">
 
-                        </tr>
-                      </tbody>
+                            </tr>
+                        </tbody>
                     </table>
-                  </div>
+                </div>
             </div>
         </div>
 
@@ -262,6 +271,11 @@
         }
 
         new Jugadas().listarCartas();
+
+        const fruits = ["Banana", "Orange", "Lemon", "Apple", "Mango"];
+        console.log('fruits :>> ', fruits);
+        const citrus = fruits.slice(fruits.length - 3, fruits.length);
+        console.log('citrus :>> ', citrus);
     });
 
     var Jugadas = (function () {
@@ -282,10 +296,57 @@
             if (!jugadas) {
                 alert("DEBE INICIAR NUEVO JUEGO");
             }
-            const arrayJugadas = JSON.parse(jugadas);
-            arrayJugadas.push(this.getAttribute("src"));
+            const arrayJugadas = JSON.parse(jugadas),
+                arrayJugadasOld = Object.values(arrayJugadas);
+            console.log('arrayJugadasOld :>> ', arrayJugadasOld);
 
+            arrayJugadas.push(this.getAttribute("src"));
             localStorage.setItem('jugadas', JSON.stringify(arrayJugadas));
+
+            const arrayJugadasNew = JSON.parse(localStorage.getItem('jugadas')),
+                arrayJugadasNewLength = arrayJugadasNew.length;
+
+            if (arrayJugadasNewLength > 3) {
+                const ultimasTresCartas = arrayJugadasNew.slice(arrayJugadasNewLength - 3, arrayJugadasNewLength),
+                    [una, dos, tres] = ultimasTresCartas;
+
+                let arrayTresCartas = [];
+                for (const [i, carta] of arrayJugadasOld.entries()) {
+                    let tresCartas = arrayJugadasOld.slice(i, 3 + i);
+                    arrayTresCartas.push(tresCartas);
+                }
+
+                arrayTresCartas = arrayTresCartas.filter((arrayTres) => arrayTres.length === 3);
+                let color = [];
+                for (const [i, tresCartas] of arrayTresCartas.entries()) {
+                    if (JSON.stringify([una, dos, tres]) == JSON.stringify(tresCartas)) {
+                        console.log('object :>> ', tresCartas);
+                        alert(`LA SIGUIENTE CARTA ES :\n${arrayTresCartas[i + 1][0]}`);
+                    }
+
+                    const regexCarta = new RegExp("drilo|flor|corazon|espada"),
+                        simboloOFigura = [una, dos, tres].map((c) => regexCarta.exec(c) ? regexCarta.exec(c)[0] : ''),
+                        simboloOFigura3 = tresCartas.map((c) => regexCarta.exec(c) ? regexCarta.exec(c)[0] : '');
+
+                    if (JSON.stringify(simboloOFigura) == JSON.stringify(simboloOFigura3)) {
+                        color.push(`LA SIGUIENTE CARTA PODRIA SER :\n${arrayTresCartas[i + 1][0]}`);
+                    }
+
+                    // if (condition) {
+                    //     alert("COLOR...!!");// "./cartas/13_drilo.png"
+                    // }
+                }
+                if (color.length) {
+                    const html = color.reduce((accumulator, currentValue) => {
+                        return accumulator + currentValue + '\n';
+                    }, '');
+                    alert(html);
+                }
+            }
+
+
+
+
             new Jugadas().listarCartas();
         };
 
